@@ -5,7 +5,7 @@ MAINTAINER Jessica B. Hamrick <jhamrick@berkeley.edu>
 USER root
 
 # Install psychopg2
-RUN apt-get -y install libpq-dev
+RUN apt-get update && apt-get -y install libpq-dev && apt-get clean
 RUN pip install psycopg2
 
 # Install nbgrader
