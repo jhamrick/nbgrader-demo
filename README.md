@@ -30,7 +30,7 @@ You should now be able to fetch and submit assignments from the notebook list, u
 
 which will place submitted assignments in `instructor/submitted`. To then autograde those assignments, run (from the `instructor` directory):
 
-    nbgrader autograde ps1
+    nbgrader autograde ps1 --create
 
 This will place the autograded assignments in `instructor/autograded`. At this point, you would run `nbgrader formgrade` to use the formgrader for manual grading and partial credit. However, this is currently not possible through the Binder demo.
 
