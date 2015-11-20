@@ -14,3 +14,6 @@ USER root
 RUN mkdir -p /srv/nbgrader/exchange
 RUN chmod ugo+rw /srv/nbgrader/exchange
 USER main
+
+# Add the notebook config
+ADD jupyter_notebook_config.json /home/main/.jupyter/jupyter_notebook_config.json
