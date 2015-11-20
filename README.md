@@ -15,12 +15,14 @@ You can launch the demo using Binder:
 
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/jhamrick/nbgrader-demo)
 
-The example assignment is located in `instructor/source`. If you run `nbgrader assign`:
+The example assignment is located in `instructor/source`. You can edit it to add new problems, change points, etc.
+
+Once you are happy with the assignment, you can open a terminal and run `nbgrader assign` to create the student version of the assignment:
 
     cd instructor
     nbgrader assign ps1 --create
 
-then this will create the student version in `instructor/release`. You can "release" it to students with (still from the `instructor` directory):
+The student version will be located in `instructor/release`. You can "release" it to students with (still from the `instructor` directory):
 
     nbgrader release ps1
 
