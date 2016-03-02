@@ -1,43 +1,42 @@
-import tornado
+import os
+
 from notebook.utils import url_path_join as ujoin
+from nbgrader.apps import FormgradeApp
+from traitlets.config import Config
 
-
-class ProxyHandler(tornado.web.RequestHandler):
-
-    @tornado.web.asynchronous
-    def forward(self, path):
-        body = None if self.request.body == b'' else self.request.body
-        client = tornado.httpclient.AsyncHTTPClient()
-        client.fetch(
-            ujoin('http://localhost:5000', path),
-            method=self.request.method,
-            body=body,
-            headers=self.request.headers,
-            follow_redirects=True,
-            callback=self.callback)
-
-    def get(self, path):
-        return self.forward(path)
-
-    def put(self, path):
-        return self.forward(path)
-
-    def post(self, path):
-        return self.forward(path)
-
-    def callback(self, request):
-        self.finish(request.body)
-
-
-default_handlers = [
-    (r"/formgrader/(?P<path>.*)", ProxyHandler)
-]
 
 def load_jupyter_server_extension(nbapp):
     """Load the nbserver"""
+
+    c = Config()
+    c.FormgradeApp.authenticator_class = 'nbgrader.auth.NotebookAuth'
+    c.BaseAuth.connect_ip = nbapp.ip
+    c.BaseAuth.connect_port = nbapp.port
+    c.BaseAuth.url_prefix = '/formgrader'
+    c.NotebookAuth.notebook_address = nbapp.ip
+    c.NotebookAuth.notebook_port = nbapp.port
+    c.NotebookAuth.notebook_url_prefix = "instructor"
+    c.NbGrader.log_level = nbapp.log_level
+    c.NbGrader.course_directory = os.path.join(os.getcwd(), "instructor")
+
+    formgrader = FormgradeApp(parent=nbapp)
+    formgrader.update_config(c)
+    super(FormgradeApp, formgrader).initialize([])
+    formgrader.init_tornado_settings()
+    formgrader.init_handlers()
+
+    # update handlers
     webapp = nbapp.web_app
-    base_url = webapp.settings['base_url']
-    webapp.add_handlers(".*$", [
-        (ujoin(base_url, pat), handler)
-        for pat, handler in default_handlers
-    ])
+    base_url = webapp.settings["base_url"]
+    handlers = []
+    for handler in formgrader.handlers:
+        handler = list(handler)
+        handler[0] = ujoin(base_url, handler[0])
+        print(handler[0])
+        handlers.append(tuple(handler))
+    webapp.add_handlers(".*$", handlers)
+
+    # update settings
+    settings = formgrader.tornado_settings.copy()
+    settings.update(webapp.settings)
+    webapp.settings = settings

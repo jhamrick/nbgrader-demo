@@ -3,7 +3,7 @@ FROM andrewosh/binder-base
 MAINTAINER Jessica B. Hamrick <jhamrick@berkeley.edu>
 
 # Install nbgrader
-RUN pip install nbgrader
+RUN pip install git+git://github.com/jhamrick/nbgrader.git@notebookauth
 
 # Install nbgrader extensions
 RUN nbgrader extension install --user
