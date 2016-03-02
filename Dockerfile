@@ -16,5 +16,6 @@ RUN mkdir -p /srv/nbgrader/exchange
 RUN chmod ugo+rw /srv/nbgrader/exchange
 USER main
 
-# Add the notebook config
+# Add the notebook config and formgrade extension
 ADD jupyter_notebook_config.json /home/main/.jupyter/jupyter_notebook_config.json
+ADD formgrade_extension.py /home/main/anaconda2/lib/python2.7/site-packages/formgrade_extension.py
