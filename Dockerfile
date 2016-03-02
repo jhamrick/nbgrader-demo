@@ -6,6 +6,7 @@ MAINTAINER Jessica B. Hamrick <jhamrick@berkeley.edu>
 RUN pip install git+git://github.com/jhamrick/nbgrader.git@notebookauth
 
 # Install nbgrader extensions
+RUN jupyter notebook --generate-config
 RUN nbgrader extension install --user
 RUN nbgrader extension activate
 
