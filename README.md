@@ -20,7 +20,7 @@ The example assignment is located in `instructor/source`. You can edit it to add
 Once you are happy with the assignment, you can open a terminal and run `nbgrader assign` to create the student version of the assignment:
 
     cd instructor
-    nbgrader assign ps1 --create
+    nbgrader assign ps1
 
 The student version will be located in `instructor/release`. You can "release" it to students with (still from the `instructor` directory):
 
@@ -32,7 +32,7 @@ You should now be able to fetch and submit assignments from the notebook list, u
 
 which will place submitted assignments in `instructor/submitted`. To then autograde those assignments, run (from the `instructor` directory):
 
-    nbgrader autograde ps1 --create
+    nbgrader autograde ps1
 
 This will place the autograded assignments in `instructor/autograded`. At this point, you would run `nbgrader formgrade` to use the formgrader for manual grading and partial credit. However, this is currently not possible through the Binder demo.
 
