@@ -13,8 +13,7 @@ def load_jupyter_server_extension(nbapp):
     c.BaseAuth.connect_ip = nbapp.ip
     c.BaseAuth.connect_port = nbapp.port
     c.BaseAuth.url_prefix = '/formgrader'
-    c.NotebookAuth.notebook_address = nbapp.ip
-    c.NotebookAuth.notebook_port = nbapp.port
+    c.NotebookAuth.notebook_base_url = nbapp.base_url
     c.NotebookAuth.notebook_url_prefix = "instructor"
     c.NbGrader.log_level = nbapp.log_level
     c.NbGrader.course_directory = os.path.join(os.getcwd(), "instructor")
@@ -32,7 +31,6 @@ def load_jupyter_server_extension(nbapp):
     for handler in formgrader.handlers:
         handler = list(handler)
         handler[0] = ujoin(base_url, handler[0])
-        print(handler[0])
         handlers.append(tuple(handler))
     webapp.add_handlers(".*$", handlers)
 

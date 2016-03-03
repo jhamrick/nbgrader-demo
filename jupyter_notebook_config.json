@@ -1,7 +1,8 @@
 {
   "NotebookApp": {
     "server_extensions": [
-      "formgrade_extension"
+      "formgrade_extension",
+      "nbgrader.nbextensions.assignment_list"
     ]
   }
 }
