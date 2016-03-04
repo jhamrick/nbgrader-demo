@@ -34,7 +34,13 @@ which will place submitted assignments in `instructor/submitted`. To then autogr
 
     nbgrader autograde ps1
 
-This will place the autograded assignments in `instructor/autograded`. At this point, you would run `nbgrader formgrade` to use the formgrader for manual grading and partial credit. However, this is currently not possible through the Binder demo.
+This will place the autograded assignments in `instructor/autograded`. At this point, you would run `nbgrader formgrade` to use the formgrader for manual grading and partial credit. In this binder demo, the formgrader is already automatically running, so rather than running `nbgrader formgrade`, go to the following URL:
+
+```
+http://app.mybinder.org/[binder-id]/formgrader
+```
+
+where you should replace `[binder-id]` with the id of your currently running binder (this will be different every time you run the demo, so you'll just need to look at the URL and see what it currently is).
 
 After grading, you can generate feedback (from the `instructor` directory) with:
 
