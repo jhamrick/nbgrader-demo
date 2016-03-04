@@ -1,18 +1,30 @@
 # nbgrader demo
 
-This is a simple demo of a basic [nbgrader](https://github.com/jupyter/nbgrader) setup on a server. This demo illustrates the following features of nbgrader:
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/jhamrick/nbgrader-demo)
 
-* creating assignments (instructor)
-* releasing assignments (instructor)
-* fetching assignments (student)
-* submitting assignments (student)
-* collecting assignments (instructor)
-* autograding assignments (instructor)
+## Resources
+
+* [nbgrader Highlights](http://nbgrader.readthedocs.org/en/latest/user_guide/highlights.html)
+* [nbgrader Documentation](http://nbgrader.readthedocs.org/en/latest/)
+* [SIGCSE 2016 Demo Slides](http://jhamrick.github.io/sigcse-2016-slides/#/)
+
+## Overview
+
+This is a simple demo of a basic setup of nbgrader a server. This demo illustrates the following features of nbgrader:
+
+* creating assignments with the assignment toolbar and `nbgrader assign` (instructor)
+* releasing assignments with `nbgrader release` (instructor)
+* fetching assignments with the assignment list extension (student)
+* submitting assignments with the assignment list extension (student)
+* collecting assignments with `nbgrader collect` (instructor)
+* autograding assignments with `nbgrader autograde` (instructor)
 * manually grading assignments with the formgrader (instructor)
 
-You can launch the demo using Binder:
+## Running the demo
 
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/jhamrick/nbgrader-demo)
+You can launch the demo using [Binder](http://mybinder.org/), which is a service for running Jupyter notebook servers initialized with a set of notebooks from a give repository. You can launch the demo by clicking on the badge above that says "launch binder".
+
+## Creating assignments
 
 The example assignment is located in `instructor/source`. You can edit it to add new problems, change points, etc.
 
