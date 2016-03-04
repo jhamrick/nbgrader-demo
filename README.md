@@ -1,6 +1,6 @@
 # nbgrader demo
 
-This is a simple demo of a basic nbgrader setup. This demo illustrates the following features of nbgrader:
+This is a simple demo of a basic [nbgrader](https://github.com/jupyter/nbgrader) setup on a server. This demo illustrates the following features of nbgrader:
 
 * creating assignments (instructor)
 * releasing assignments (instructor)
