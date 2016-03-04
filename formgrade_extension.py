@@ -9,7 +9,7 @@ def load_jupyter_server_extension(nbapp):
     """Load the nbserver"""
 
     c = Config()
-    c.FormgradeApp.authenticator_class = 'nbgrader.auth.NotebookAuth'
+    c.FormgradeApp.authenticator_class = 'notebookauth.NotebookAuth'
     c.BaseAuth.connect_ip = nbapp.ip
     c.BaseAuth.connect_port = nbapp.port
     c.BaseAuth.url_prefix = '/formgrader'
@@ -35,6 +35,6 @@ def load_jupyter_server_extension(nbapp):
     webapp.add_handlers(".*$", handlers)
 
     # update settings
-    settings = formgrader.tornado_settings.copy()
-    settings.update(webapp.settings)
-    webapp.settings = settings
+    formgrader.tornado_settings['nbgrader_mathjax_url'] = webapp.settings['mathjax_url']
+    formgrader.tornado_settings['log_function'] = webapp.settings['log_function']
+    webapp.settings.update(formgrader.tornado_settings)
