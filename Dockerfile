@@ -3,7 +3,7 @@ FROM andrewosh/binder-base
 MAINTAINER Jessica B. Hamrick <jhamrick@berkeley.edu>
 
 # Install nbgrader
-RUN pip install git+git://github.com/jhamrick/nbgrader.git@notebookauth
+RUN pip install git+git://github.com/jupyter/nbgrader.git
 
 # Install nbgrader extensions
 RUN jupyter notebook --generate-config
@@ -19,3 +19,4 @@ USER main
 # Add the notebook config and formgrade extension
 ADD jupyter_notebook_config.json /home/main/.jupyter/jupyter_notebook_config.json
 ADD formgrade_extension.py /home/main/anaconda2/lib/python2.7/site-packages/formgrade_extension.py
+ADD notebookauth.py /home/main/anaconda2/lib/python2.7/site-packages/notebookauth.py
