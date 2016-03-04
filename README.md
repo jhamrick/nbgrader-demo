@@ -8,8 +8,7 @@ This is a simple demo of a basic nbgrader setup. This demo illustrates the follo
 * submitting assignments (student)
 * collecting assignments (instructor)
 * autograding assignments (instructor)
-
-Unfortunately, this demo does not run the formgrader, so you can't see how the manual grading would work at this time.
+* manually grading assignments with the formgrader (instructor)
 
 You can launch the demo using Binder:
 
@@ -26,7 +25,7 @@ The student version will be located in `instructor/release`. You can "release" i
 
     nbgrader release ps1
 
-You should now be able to fetch and submit assignments from the notebook list, under the "Assignments" tab. Once you have submitted an assignment, you can collect it (from the `instructor` directory) with:
+You should now be able to fetch, edit, and submit assignments from the notebook list, under the "Assignments" tab. Once you have submitted an assignment, you can collect it (from the `instructor` directory) with:
 
     nbgrader collect ps1
 
