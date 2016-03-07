@@ -24,6 +24,14 @@ This is a simple demo of a basic setup of nbgrader a server. This demo illustrat
 
 You can launch the demo using [Binder](http://mybinder.org/), which is a service for running Jupyter notebook servers initialized with a set of notebooks from a give repository. You can launch the demo by clicking on the badge above that says "launch binder".
 
+If you want to use the demo as a base for getting nbgrader running on your own machine, please note that the demo requires the development version of nbgrader, which you can install with:
+
+```
+pip install git+git://github.com/jupyter/nbgrader.git
+```
+
+(If you are not interested in running the demo locally then you do not need to worry about installing nbgrader.)
+
 ## Creating assignments (instructor)
 
 The example assignment is located in `instructor/source`. You can edit it to add new problems, change points, etc.
