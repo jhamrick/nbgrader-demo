@@ -75,7 +75,7 @@ To then autograde those assignments, run (from the `instructor` directory):
 This will place the autograded assignments in `instructor/autograded`. At this point, you would run `nbgrader formgrade` to use the formgrader for manual grading and partial credit. In this binder demo, the formgrader is already automatically running, so rather than running `nbgrader formgrade`, go to the following URL:
 
 ```
-http://app.mybinder.org/[binder-id]/formgrader
+https://app.mybinder.org:80/[binder-id]/formgrader
 ```
 
 where you should replace `[binder-id]` with the id of your currently running binder (this will be different every time you run the demo, so you'll just need to look at the URL and see what it currently is).
