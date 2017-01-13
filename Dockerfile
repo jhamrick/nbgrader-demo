@@ -7,8 +7,9 @@ RUN pip install git+git://github.com/jupyter/nbgrader.git
 
 # Install nbgrader extensions
 RUN jupyter notebook --generate-config
-RUN nbgrader extension install --user
-RUN nbgrader extension activate
+RUN jupyter nbextension install --sys-prefix --py nbgrader
+RUN jupyter nbextension enable --sys-prefix --py nbgrader
+RUN jupyter serverextension enable --sys-prefix --py nbgrader
 
 # Setup the exchange directory
 USER root
